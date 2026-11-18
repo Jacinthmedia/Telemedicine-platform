@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import axios from '../../api/axios';
 import { CheckCircle, XCircle, Loader } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -65,3 +64,4 @@ const PaymentSuccess = () => {
 };
 
 export default PaymentSuccess;
+

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
@@ -10,19 +10,15 @@ import {
   CheckCircle,
   Activity,
   Users,
-  Globe,
-  Clock,
   LockKeyhole,
   Stethoscope,
   FileText,
   MessageCircle,
-  Star,
   Menu,
   X,
   Sparkles,
   CircleCheck,
   HeartPulse,
-  Smartphone,
   ChevronRight,
 } from 'lucide-react';
 import './Landing.css';
@@ -621,7 +617,7 @@ const Landing = () => {
           </div>
 
           <div className="lp-footer-bottom">
-            <span>© {new Date().getFullYear()} MediCare. All rights reserved.</span>
+            <span>Â© {new Date().getFullYear()} MediCare. All rights reserved.</span>
             <span><Heart size={14} fill="#10b981" color="#10b981" /> Designed for connected care</span>
           </div>
         </div>
@@ -631,3 +627,4 @@ const Landing = () => {
 };
 
 export default Landing;
+

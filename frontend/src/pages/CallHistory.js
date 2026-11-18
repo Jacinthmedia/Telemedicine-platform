@@ -1,11 +1,19 @@
-import React, { useState, useEffect, useMemo } from 'react';
+﻿import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../api/axios';
 import {
-  Video, Phone, Clock, User, Calendar, Search, Filter,
-  CheckCircle, XCircle, Loader, AlertCircle, Play,
-  Download, ExternalLink, MessageSquare, TrendingUp,
+  Video,
+  Clock,
+  Calendar,
+  Search,
+  Filter,
+  CheckCircle,
+  Loader,
+  AlertCircle,
+  Download,
+  ExternalLink,
+  TrendingUp,
 } from 'lucide-react';
 import './CallHistory.css';
 
@@ -186,7 +194,7 @@ const CallHistory = () => {
         <div className="ch-banner error">
           <AlertCircle size={16} />
           <span>{error}</span>
-          <button onClick={() => setError('')}>×</button>
+          <button onClick={() => setError('')}>Ã—</button>
         </div>
       )}
 
@@ -313,3 +321,4 @@ const CallHistory = () => {
 };
 
 export default CallHistory;
+
