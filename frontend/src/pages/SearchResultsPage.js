@@ -1,12 +1,20 @@
+
 import React, { useState, useEffect, useMemo } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import api from '../api/axios';
 import {
-  Search, X, Loader, Calendar, User, Stethoscope, FileText,
-  Star, Building2, DollarSign, Clock, ChevronRight,
-  Users, AlertCircle, CheckCircle, Activity, Pill, MessageSquare,
+  Search,
+  X,
+  Loader,
+  Calendar,
+  User,
+  Stethoscope,
+  Star,
+  ChevronRight,
+  AlertCircle,
 } from 'lucide-react';
 import './SearchResultsPage.css';
+
 
 const SearchResultsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
