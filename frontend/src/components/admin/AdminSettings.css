@@ -1,0 +1,237 @@
+.as-page {
+  padding: 4px 0 40px;
+}
+
+.as-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 4px;
+  font-size: 24px;
+  color: var(--text-primary);
+}
+
+.as-header p {
+  margin: 0 0 24px;
+  color: var(--text-secondary);
+}
+
+.as-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 800px) {
+  .as-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.as-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 8px;
+  box-shadow: var(--shadow);
+  height: fit-content;
+}
+
+.as-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: none;
+  background: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: left;
+}
+
+.as-tab:hover {
+  background: var(--bg-primary);
+  color: var(--primary);
+}
+
+.as-tab.active {
+  background: var(--primary-gradient);
+  color: #fff;
+  font-weight: 600;
+}
+
+.as-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.as-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.as-card h2 {
+  margin: 0 0 20px;
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.as-field {
+  margin-bottom: 16px;
+}
+
+.as-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.as-field input,
+.as-field select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  background: var(--bg-white);
+  color: var(--text-primary);
+}
+
+.as-field input:focus,
+.as-field select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+}
+
+.as-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.as-toggle-row:last-child {
+  border-bottom: none;
+}
+
+.as-toggle-row label:first-child {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.as-switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.as-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.as-slider {
+  position: absolute;
+  inset: 0;
+  background: var(--border);
+  border-radius: 24px;
+  transition: var(--transition-fast);
+}
+
+.as-slider::before {
+  content: '';
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: var(--transition-fast);
+}
+
+.as-switch.on .as-slider {
+  background: var(--primary);
+}
+
+.as-switch.on .as-slider::before {
+  transform: translateX(18px);
+}
+
+.as-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.as-info:last-child {
+  border-bottom: none;
+}
+
+.as-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.as-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--primary-gradient);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.as-btn:hover:not(:disabled) {
+  box-shadow: var(--shadow-primary);
+}
+
+.as-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.as-loading {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
+  color: var(--primary);
+}
+
+.spin {
+  animation: as-spin 1s linear infinite;
+}
+
+@keyframes as-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

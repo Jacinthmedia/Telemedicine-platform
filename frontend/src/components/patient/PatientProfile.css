@@ -1,0 +1,469 @@
+/* ============================================================
+   PatientProfile.css
+   Prefix: pp-
+   ============================================================ */
+
+.pp-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 4px 0 40px;
+}
+
+/* ---------------- Header ---------------- */
+.pp-header-card {
+  overflow: hidden;
+}
+
+.pp-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.pp-avatar-wrap {
+  flex-shrink: 0;
+}
+
+.pp-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+}
+
+.pp-avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-gradient);
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.pp-header-info h1 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pp-header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.pp-header-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pp-header-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pp-header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ---------------- Tabs ---------------- */
+.pp-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  padding-bottom: 0;
+}
+
+.pp-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.pp-tab:hover {
+  color: var(--primary);
+  background: var(--bg-primary);
+}
+
+.pp-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+  font-weight: 600;
+}
+
+/* ---------------- Grid ---------------- */
+.pp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 900px) {
+  .pp-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pp-info-card {
+  height: 100%;
+}
+
+/* ---------------- Info fields ---------------- */
+.pp-info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .pp-info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pp-field label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pp-field-value {
+  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.pp-field input,
+.pp-field select,
+.pp-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-white);
+  transition: var(--transition-fast);
+}
+
+.pp-field input:focus,
+.pp-field select:focus,
+.pp-field textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+}
+
+.pp-field textarea {
+  resize: vertical;
+  min-height: 70px;
+  font-family: inherit;
+}
+
+/* ---------------- Documents ---------------- */
+.pp-docs-card {
+  min-height: 280px;
+}
+
+.pp-docs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pp-doc-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.pp-doc-item:hover {
+  border-color: var(--primary-light);
+  background: var(--bg-primary);
+}
+
+.pp-doc-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--primary-gradient-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pp-doc-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.pp-doc-info strong {
+  font-size: 14px;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pp-doc-info span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.pp-doc-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.pp-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.pp-icon-btn:hover {
+  background: var(--bg-primary);
+  color: var(--primary);
+}
+
+.pp-icon-danger:hover {
+  color: var(--error);
+  background: var(--error-bg);
+}
+
+/* ---------------- Empty / error states ---------------- */
+.pp-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 48px 24px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.pp-empty-state p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.pp-error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 48px 24px;
+  color: var(--error);
+  text-align: center;
+}
+
+.pp-error-state h3 {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.pp-error-state p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* ---------------- Security ---------------- */
+.pp-pw-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pp-security-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pp-security-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.pp-ok {
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+/* ---------------- Modal ---------------- */
+.pp-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.pp-modal {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pp-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.pp-modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.pp-modal-body {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+}
+
+.pp-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 22px;
+  border-top: 1px solid var(--border-light);
+  background: var(--bg-primary);
+}
+
+.pp-file-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-secondary);
+  border: 1px dashed var(--border);
+}
+
+.pp-file-chip span:first-of-type {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pp-file-size {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.pp-spin {
+  animation: pp-spin 1s linear infinite;
+}
+
+@keyframes pp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 700px) {
+  .pp-header {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .pp-avatar-wrap {
+    justify-self: center;
+  }
+
+  .pp-header-meta {
+    justify-content: center;
+  }
+
+  .pp-header-badges {
+    justify-content: center;
+  }
+
+  .pp-header-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

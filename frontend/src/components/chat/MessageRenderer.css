@@ -1,0 +1,27 @@
+.mr-markdown { font-size: 14px; line-height: 1.6; }
+.mr-markdown p { margin: 0 0 10px 0; }
+.mr-markdown p:last-child { margin: 0; }
+.mr-markdown ul, .mr-markdown ol { margin: 0 0 10px 0; padding-left: 20px; }
+.mr-markdown h1, .mr-markdown h2, .mr-markdown h3 { margin: 15px 0 10px 0; font-size: 16px; font-weight: 600; }
+.mr-markdown blockquote { border-left: 3px solid var(--primary); margin: 10px 0; padding-left: 10px; color: var(--text-muted); }
+
+/* Inline Code */
+.mr-markdown code { background: rgba(0,0,0,0.1); padding: 2px 5px; border-radius: 4px; font-family: monospace; font-size: 13px; }
+.ci-bubble-wrap.me .mr-markdown code { background: rgba(255,255,255,0.2); }
+
+/* Code Blocks */
+.mr-code-wrapper { margin: 10px 0; border-radius: 8px; overflow: hidden; background: #1E1E1E; text-align: left; }
+.mr-code-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #2D2D2D; color: #ccc; font-size: 12px; }
+.mr-copy-btn { background: none; border: none; color: #ccc; display: flex; align-items: center; gap: 4px; cursor: pointer; font-size: 12px; }
+.mr-copy-btn:hover { color: #fff; }
+
+/* Tables */
+.mr-table-wrapper { overflow-x: auto; margin: 10px 0; border-radius: 8px; border: 1px solid var(--border); }
+.mr-table-wrapper table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.mr-table-wrapper th, .mr-table-wrapper td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+.mr-table-wrapper th { background: var(--bg-primary); font-weight: 600; }
+.mr-table-wrapper tr:last-child td { border-bottom: none; }
+
+/* Charts */
+.mr-chart-wrapper { background: var(--bg-white); padding: 15px; border-radius: 12px; margin: 10px 0; border: 1px solid var(--border); }
+.mr-chart-title { margin: 0 0 15px 0; font-size: 14px; font-weight: 600; color: var(--text-primary); text-align: center; }

@@ -1,0 +1,116 @@
+.doctor-profile-page { max-width: 1000px; margin: 0 auto; padding: 8px 0 60px; }
+
+.dp-back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px; background: white;
+  border: 1px solid #e2e8f0; border-radius: 10px;
+  color: #334155; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; margin-bottom: 20px;
+}
+.dp-back-btn:hover { background: #f1f5f9; }
+
+.dp-hero {
+  background: white; border-radius: 20px; overflow: hidden;
+  border: 1px solid #f1f5f9; margin-bottom: 24px;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+}
+.dp-hero-bg {
+  height: 100px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+.dp-hero-content {
+  display: flex; gap: 24px; padding: 0 32px 28px;
+  margin-top: -60px; align-items: flex-end;
+}
+.dp-hero-avatar {
+  width: 120px; height: 120px; border-radius: 50%;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white; display: flex; align-items: center;
+  justify-content: center; font-size: 2.5rem; font-weight: 700;
+  border: 5px solid white; flex-shrink: 0; overflow: hidden;
+}
+.dp-hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.dp-hero-info { padding-top: 68px; flex: 1; }
+.dp-hero-name-row {
+  display: flex; align-items: center; gap: 12px;
+  flex-wrap: wrap; margin-bottom: 6px;
+}
+.dp-hero-info h1 { margin: 0; font-size: 1.65rem; color: #0f172a; }
+.dp-verified {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 10px; background: #d1fae5; color: #059669;
+  font-size: 0.72rem; font-weight: 700; border-radius: 20px;
+  text-transform: uppercase;
+}
+.dp-hero-spec {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.9rem; color: #10b981; font-weight: 600;
+  margin-bottom: 12px;
+}
+.dp-hero-meta {
+  display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
+}
+.dp-rating-block { display: flex; align-items: center; gap: 8px; }
+.dp-stars { display: flex; gap: 1px; }
+.dp-rating-number { font-weight: 700; color: #0f172a; }
+.dp-review-total { color: #64748b; font-size: 0.82rem; }
+.dp-meta-item {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.83rem; color: #64748b;
+}
+.dp-meta-item svg { color: #10b981; }
+
+.dp-details-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+.dp-detail-card {
+  background: white; border-radius: 14px; padding: 20px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+.dp-detail-card.dp-detail-full { grid-column: 1 / -1; }
+.dp-detail-card h3 {
+  display: flex; align-items: center; gap: 8px;
+  margin: 0 0 16px 0; font-size: 0.95rem;
+  font-weight: 700; color: #0f172a;
+}
+.dp-detail-card h3 svg { color: #10b981; }
+.dp-detail-row {
+  display: flex; justify-content: space-between;
+  padding: 10px 0; border-bottom: 1px solid #f8fafc;
+  font-size: 0.88rem;
+}
+.dp-detail-row:last-child { border-bottom: none; }
+.dp-detail-row span { color: #64748b; }
+.dp-detail-row strong { color: #0f172a; font-weight: 600; }
+.dp-detail-card p { margin: 0; color: #475569; line-height: 1.6; font-size: 0.9rem; }
+
+.dp-loading, .dp-error {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 100px 20px; gap: 16px;
+  color: #64748b;
+}
+.dp-error-icon { font-size: 3rem; }
+.dp-error h2 { margin: 0; color: #0f172a; }
+.dp-error p { margin: 0; color: #64748b; }
+.dp-btn-primary {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 20px; background: linear-gradient(135deg, #10b981, #059669);
+  color: white; border: none; border-radius: 10px;
+  font-size: 0.9rem; font-weight: 600; cursor: pointer;
+}
+.spinner {
+  width: 40px; height: 40px;
+  border: 3px solid #e2e8f0; border-top-color: #10b981;
+  border-radius: 50%; animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 768px) {
+  .dp-hero-content { flex-direction: column; text-align: center; padding: 0 20px 20px; }
+  .dp-hero-avatar { margin: 0 auto; }
+  .dp-hero-info { padding-top: 0; }
+  .dp-hero-name-row, .dp-hero-meta { justify-content: center; }
+  .dp-hero-info h1 { font-size: 1.3rem; }
+}

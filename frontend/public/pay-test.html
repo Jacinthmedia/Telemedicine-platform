@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paystack Test Checkout</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f5f5f7; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); text-align: center; max-width: 400px; width: 100%; }
+        h1 { font-size: 24px; color: #1d1d1f; margin-bottom: 10px; }
+        p { color: #86868b; margin-bottom: 30px; font-size: 15px; }
+        input { width: 100%; padding: 14px; border-radius: 12px; border: 1px solid #d2d2d7; margin-bottom: 20px; font-size: 16px; box-sizing: border-box; }
+        button { width: 100%; padding: 16px; background: #007aff; color: white; border: none; border-radius: 14px; font-size: 17px; font-weight: 600; cursor: pointer; transition: transform 0.2s; }
+        button:active { transform: scale(0.97); }
+        .error { color: #ff3b30; margin-top: 15px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Paystack Test</h1>
+        <p>Enter your Appointment ID to test the checkout.</p>
+        
+        <input type="number" id="apptId" placeholder="Appointment ID (e.g. 5)">
+        <button onclick="startPayment()">Pay Now</button>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script>
+        async function startPayment() {
+            const apptId = document.getElementById('apptId').value;
+            const errorDiv = document.getElementById('error');
+            const btn = document.querySelector('button');
+            
+            if (!apptId) {
+                errorDiv.innerText = 'Please enter an ID';
+                return;
+            }
+
+            btn.innerText = 'Redirecting...';
+            errorDiv.innerText = '';
+
+            try {
+                // Get the JWT token from local storage (since you are logged in on your laptop)
+                const token = localStorage.getItem('access_token') || localStorage.getItem('token');
+                
+                if (!token) {
+                    errorDiv.innerText = 'No login token found. Please login first.';
+                    btn.innerText = 'Pay Now';
+                    return;
+                }
+
+                // Call your backend
+                const response = await fetch(`http://192.168.137.1:8000/api/payments/checkout/${apptId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+
+                if (data.authorization_url) {
+                    window.location.href = data.authorization_url;
+                } else {
+                    errorDiv.innerText = data.error || 'Failed to initialize payment';
+                    btn.innerText = 'Pay Now';
+                }
+            } catch (err) {
+                errorDiv.innerText = 'Network error. Check the backend terminal.';
+                btn.innerText = 'Pay Now';
+                console.error(err);
+            }
+        }
+    </script>
+</body>
+</html>

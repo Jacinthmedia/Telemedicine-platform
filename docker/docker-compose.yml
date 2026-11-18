@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: telemedicine_db
+    environment:
+      POSTGRES_DB: telemedicine_db
+      POSTGRES_USER: telemedicine_user
+      POSTGRES_PASSWORD: secure_password_2024
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - telemedicine_network
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: ../docker/Dockerfile.backend
+    container_name: telemedicine_backend
+    environment:
+      DEBUG: 'False'
+      DATABASE_ENGINE: django.db.backends.postgresql
+      DATABASE_NAME: telemedicine_db
+      DATABASE_USER: telemedicine_user
+      DATABASE_PASSWORD: secure_password_2024
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    volumes:
+      - ../backend:/app
+      - ../backend/media:/app/media
+    networks:
+      - telemedicine_network
+    command: gunicorn telemedicine.wsgi:application --bind 0.0.0.0:8000
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: ../docker/Dockerfile.frontend
+    container_name: telemedicine_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - telemedicine_network
+
+  nginx:
+    image: nginx:alpine
+    container_name: telemedicine_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ../backend/staticfiles:/static
+      - ../backend/media:/media
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - telemedicine_network
+
+volumes:
+  postgres_data:
+
+networks:
+  telemedicine_network:
+    driver: bridge

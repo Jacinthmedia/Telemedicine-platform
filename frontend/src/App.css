@@ -1,0 +1,142 @@
+/* =========================================================
+   BASE RESET & TYPOGRAPHY
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Apple's signature smooth easing curve */
+  --apple-ease: cubic-bezier(0.25, 1, 0.5, 1);
+  --apple-primary: #007aff;
+  --apple-bg: #f5f5f7;
+  --apple-text: #1d1d1f;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: var(--apple-bg);
+  color: var(--apple-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  min-height: 80vh;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  font-size: 1.2em;
+  color: #86868b;
+}
+
+/* =========================================================
+   TOASTIFY CUSTOM STYLES
+   ========================================================= */
+.Toastify__toast--success {
+  background: #34c759 !important; /* Apple Green */
+  border-radius: 12px !important;
+}
+
+.Toastify__toast--error {
+  background: #ff3b30 !important; /* Apple Red */
+  border-radius: 12px !important;
+}
+
+/* =========================================================
+   APPLE SMOOTH UI EFFECTS (Add to components)
+   ========================================================= */
+
+/* 1. Card Fade-in and Slide-up */
+@keyframes appleFadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px) scale(0.98); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+/* 2. Glassmorphism Card */
+.apple-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  animation: appleFadeIn 0.6s var(--apple-ease) forwards;
+  transition: box-shadow 0.3s var(--apple-ease), transform 0.3s var(--apple-ease);
+}
+
+.apple-card:hover {
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* 3. Modern Apple Buttons */
+.apple-btn {
+  background: var(--apple-primary);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s var(--apple-ease), background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.apple-btn:hover {
+  background: #0066d6;
+  opacity: 0.9;
+}
+
+/* Apple's signature "press" effect */
+.apple-btn:active {
+  transform: scale(0.96); 
+}
+
+/* 4. Smooth Inputs */
+.apple-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  transition: all 0.3s var(--apple-ease);
+}
+
+.apple-input:focus {
+  border-color: var(--apple-primary);
+  box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.15);
+  outline: none;
+  background: #ffffff;
+}
+
+/* 5. Smooth Page Transitions (Optional) */
+.page-transition {
+  animation: appleFadeIn 0.5s var(--apple-ease) forwards;
+}

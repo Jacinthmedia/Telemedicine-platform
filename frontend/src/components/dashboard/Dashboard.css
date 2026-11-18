@@ -1,0 +1,46 @@
+/* ============================================
+   SHARED DASHBOARD STYLES
+   (used by Patient / Doctor / Admin)
+============================================ */
+
+/* Reset for the content area */
+.dashboard-container,
+.dd-page, .ad-page, .pd-page {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Common button style for all dashboards */
+.dd-btn-primary,
+.ad-btn-primary,
+.pd-btn-primary {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 20px;
+  color: white; border: none; border-radius: 10px;
+  font-size: 0.88rem; font-weight: 600; cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.dd-btn-primary { background: linear-gradient(135deg, #10b981, #059669); }
+.ad-btn-primary { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+.pd-btn-primary { background: linear-gradient(135deg, #10b981, #059669); }
+.dd-btn-primary:hover,
+.ad-btn-primary:hover,
+.pd-btn-primary:hover { transform: translateY(-1px); }
+
+/* Loading spinner (shared) */
+.spin { animation: dashSpin 1s linear infinite; }
+@keyframes dashSpin { to { transform: rotate(360deg); } }
+
+/* Text utilities */
+.dd-text-muted, .ad-text-muted, .pd-text-muted { color: #94a3b8; }
+.dd-text-strong, .ad-text-strong, .pd-text-strong { color: #0f172a; font-weight: 700; }
+
+/* Small badge base (shared shape only) */
+.dd-status-badge,
+.ad-status-badge,
+.pd-status-badge {
+  display: inline-flex; align-items: center;
+  padding: 3px 10px; border-radius: 12px;
+  font-size: 0.68rem; font-weight: 700;
+  text-transform: capitalize; white-space: nowrap;
+}

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Selection */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 8px; }
+.gap-4 { gap: 16px; }
+.gap-6 { gap: 24px; }
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+.mt-2 { margin-top: 8px; }
+.mt-4 { margin-top: 16px; }
+.mt-6 { margin-top: 24px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-6 { margin-bottom: 24px; }
+/* =========================================
+   DARK MODE STYLES
+   ========================================= */
+body.dark-mode {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+body.dark-mode .layout-container,
+body.dark-mode .layout-content {
+  background-color: #0f172a;
+}
+
+body.dark-mode .topnav {
+  background: #1e293b;
+  border-bottom-color: #334155;
+}
+
+body.dark-mode .topnav-search input {
+  background: #334155;
+  border-color: #475569;
+  color: #f8fafc;
+}
+
+body.dark-mode .user-btn {
+  background: #334155;
+  border-color: #475569;
+}
+
+body.dark-mode .user-name {
+  color: #f8fafc;
+}
+
+body.dark-mode .user-dropdown {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+body.dark-mode .dropdown-item {
+  color: #f8fafc;
+}
+
+body.dark-mode .dropdown-item:hover {
+  background: #334155;
+  color: #34d399;
+}
+
+body.dark-mode .sidebar {
+  background: #0f172a;
+  border-right: 1px solid #1e293b;
+}
+
+body.dark-mode .sidebar-link:hover {
+  background: #1e293b;
+}

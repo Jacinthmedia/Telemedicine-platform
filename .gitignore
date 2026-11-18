@@ -1,0 +1,62 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.venv/
+
+# Django
+db.sqlite3
+db.sqlite3-*
+staticfiles/
+media/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# React / Node
+node_modules/
+build/
+dist/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+
+# IDE
+.vscode/
+.idea/
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Backup files
+*.bak
+
+# Database files and backups
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-backup
+*.backup
+*.backup-*
+*.before_*
+*.bak
+
+# Temporary and old files
+backend/python
+frontend/1
+frontend/11
+
+# Local uploads
+media/
+uploads/

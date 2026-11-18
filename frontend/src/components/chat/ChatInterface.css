@@ -1,0 +1,483 @@
+/* =========================================
+   MEDICARE GREEN CLINICAL CHAT
+   ========================================= */
+.ci-root {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  background: #F8FAFC;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* --- SIDEBAR --- */
+.ci-sidebar {
+  width: 320px;
+  background: #FFFFFF;
+  border-right: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.ci-sidebar-header { padding: 24px 24px 16px; display: flex; justify-content: space-between; align-items: center; }
+.ci-sidebar-header h2 { margin: 0; font-size: 18px; font-weight: 700; color: #0F172A; }
+
+.ci-search { padding: 0 24px 16px; }
+.ci-search input {
+  width: 100%; padding: 12px 16px; border-radius: 24px;
+  border: 1px solid #E2E8F0; background: #F8FAFC; font-size: 13px;
+  outline: none; transition: border 0.2s;
+}
+.ci-search input:focus { border-color: #16A34A; }
+
+.ci-conversations { flex: 1; overflow-y: auto; padding: 0 12px; }
+.ci-conv {
+  display: flex; align-items: center; gap: 16px; padding: 12px;
+  border-radius: 12px; width: 100%; text-align: left; cursor: pointer;
+  border: none; background: transparent; transition: background 0.15s;
+  margin-bottom: 4px;
+}
+.ci-conv:hover { background: #F1F5F9; }
+.ci-conv.active { background: #DCFCE7; border: 1px solid #BBF7D0; }
+
+.ci-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 16px; flex-shrink: 0;
+}
+.ci-avatar.doc { background: #0F172A; }
+.ci-avatar.pat { background: #16A34A; }
+.ci-avatar.sm { width: 42px; height: 42px; font-size: 15px; }
+
+.ci-conv-content { flex: 1; overflow: hidden; }
+.ci-conv-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.ci-conv-top h4 { margin: 0; font-size: 14px; font-weight: 700; color: #0F172A; }
+.ci-conv-time { font-size: 11px; color: #94A3B8; font-weight: 500; }
+.ci-conv-bottom p { margin: 0; font-size: 12px; color: #64748B; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* --- MAIN PANEL --- */
+.ci-main { flex: 1; display: flex; flex-direction: column; background: #FFFFFF; min-height: 0; height: 100%; }
+
+.ci-header {
+  padding: 16px 24px; background: #FFFFFF; display: flex; align-items: center; gap: 16px;
+  border-bottom: 1px solid #E2E8F0; flex-shrink: 0;
+}
+.ci-header-info h3 { margin: 0; font-size: 16px; font-weight: 700; color: #0F172A; }
+.ci-header-info span { font-size: 12px; color: #64748B; display: flex; align-items: center; gap: 6px; font-weight: 500; }
+.online-dot { width: 8px; height: 8px; background: #16A34A; border-radius: 50%; }
+
+.ci-messages {
+  flex: 1; overflow-y: auto; padding: 32px 40px;
+  display: flex; flex-direction: column; gap: 20px; background: #F8FAFC;
+}
+
+.ci-bubble-wrap { display: flex; width: 100%; position: relative; }
+.ci-bubble-wrap.me { justify-content: flex-end; }
+.ci-bubble-wrap.them { justify-content: flex-start; }
+.ci-bubble-group { display: flex; align-items: flex-start; gap: 12px; max-width: 75%; position: relative; }
+
+.ci-bubble {
+  padding: 14px 18px; border-radius: 16px; font-size: 14px;
+  color: #0F172A; line-height: 1.5; position: relative;
+}
+
+/* Incoming */
+.ci-bubble-wrap.them .ci-bubble { background: #FFFFFF; border: 1px solid #E2E8F0; border-top-left-radius: 4px; }
+
+/* Outgoing - BRAND GREEN */
+.ci-bubble-wrap.me .ci-bubble { 
+  background: #16A34A; 
+  color: #FFFFFF; 
+  border: 1px solid #16A34A; 
+  border-top-right-radius: 4px; 
+}
+
+.ci-bubble-meta { display: flex; justify-content: flex-end; align-items: center; gap: 6px; font-size: 11px; margin-top: 6px; opacity: 0.8; }
+.ci-bubble-wrap.me .ci-bubble-meta { color: #DCFCE7; }
+
+/* --- HOVER ACTIONS --- */
+.ci-msg-actions { display: flex; gap: 4px; opacity: 0; transition: opacity 0.2s; align-items: center; padding-top: 4px; }
+.ci-bubble-group:hover .ci-msg-actions { opacity: 1; }
+.ci-msg-actions button {
+  background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 50%; width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center; color: #64748B; cursor: pointer;
+}
+.ci-msg-actions button:hover { background: #F1F5F9; color: #16A34A; }
+
+.ci-message-tags { position: absolute; bottom: -14px; display: flex; gap: 4px; z-index: 5; }
+.ci-bubble-wrap.me .ci-message-tags { right: 8px; }
+.ci-bubble-wrap.them .ci-message-tags { left: 8px; }
+.ci-tag { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 2px 8px; font-size: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: #0F172A; }
+
+/* --- MENUS --- */
+.ci-more-menu { position: relative; }
+.ci-dropdown {
+  position: absolute; top: 100%; right: 0; background: #FFFFFF; border-radius: 12px; padding: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #E2E8F0;
+  display: flex; flex-direction: column; min-width: 160px; z-index: 20; margin-top: 4px;
+}
+.ci-dropdown button { background: none; border: none; padding: 10px 14px; text-align: left; cursor: pointer; font-size: 13px; border-radius: 8px; color: #0F172A; font-weight: 500; }
+.ci-dropdown button:hover { background: #F1F5F9; }
+.ci-dropdown button.danger { color: #DC2626; }
+
+.ci-emoji-popup {
+  position: absolute; bottom: 100%; background: #FFFFFF; border-radius: 24px; padding: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #E2E8F0;
+  display: flex; gap: 8px; z-index: 20; margin-bottom: 8px;
+}
+.ci-emoji-popup span { font-size: 24px; cursor: pointer; padding: 4px; border-radius: 50%; transition: transform 0.1s; }
+.ci-emoji-popup span:hover { transform: scale(1.2); }
+
+/* --- COMPOSER --- */
+.ci-composer { padding: 20px 24px; background: #FFFFFF; border-top: 1px solid #E2E8F0; flex-shrink: 0; }
+.ci-composer-input { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 28px; display: flex; align-items: center; padding: 6px 8px 6px 16px; }
+.ci-composer-input textarea { flex: 1; border: none; background: transparent; padding: 12px 8px; resize: none; outline: none; font-size: 14px; max-height: 100px; font-family: inherit; }
+.ci-emoji-btn { background: none; border: none; color: #94A3B8; cursor: pointer; padding: 8px; display: flex; align-items: center; }
+.ci-emoji-btn:hover { color: #16A34A; }
+
+.ci-send { 
+  background: #16A34A; color: #fff; border: none; width: 44px; height: 44px; 
+  border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+  cursor: pointer; transition: transform 0.2s, background 0.2s; margin-left: 8px; 
+}
+.ci-send:disabled { background: #CBD5E1; }
+.ci-send:not(:disabled):hover { transform: scale(1.05); background: #15803D; }
+
+/* Typing */
+.typing-bubble { padding: 14px 18px; display: flex; gap: 6px; align-items: center; }
+.dot { width: 6px; height: 6px; background: #94A3B8; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both; }
+.dot:nth-child(1) { animation-delay: -0.32s; }
+.dot:nth-child(2) { animation-delay: -0.16s; }
+@keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+.mobile-back-btn { display: none; } /* Hidden on desktop */
+
+@media (max-width: 768px) {
+  .ci-root { border-radius: 0; border: none; }
+  
+  .ci-sidebar {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    z-index: 50;
+    width: 100%;
+    max-width: 320px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    transform: translateX(-100%);
+  }
+  
+  .ci-sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Hide main chat on mobile if sidebar is open, show if active contact */
+  .ci-main {
+    display: flex;
+    flex: 1;
+    width: 100%;
+  }
+
+  .ci-header { padding: 12px 16px; }
+  .ci-messages { padding: 16px; gap: 16px; }
+  .ci-composer { padding: 12px 16px; }
+  
+  .ci-bubble-group { max-width: 85%; }
+  .ci-bubble { padding: 10px 14px; font-size: 13.5px; }
+
+  /* Show back button on mobile */
+  .mobile-back-btn { display: flex; align-items: center; justify-content: center; }
+}
+
+/* =========================================
+   MOBILE CHAT POLISH
+   Desktop styling remains unchanged.
+   ========================================= */
+
+.ci-root {
+  min-width: 0;
+  min-height: 0;
+}
+
+.ci-main {
+  min-width: 0;
+}
+
+.ci-header-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.ci-header-info h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ci-composer-input textarea {
+  min-width: 0;
+}
+
+.ci-messages {
+  overscroll-behavior: contain;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+  .ci-root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .ci-sidebar {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    border-right: 0;
+    background: #fff;
+    box-shadow: none;
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.22s ease, visibility 0.22s ease;
+  }
+
+  .ci-root.mobile-list .ci-sidebar {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .ci-root.mobile-chat .ci-sidebar {
+    transform: translateX(-100%);
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .ci-main {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    overflow: hidden;
+  }
+
+  .ci-root.mobile-list .ci-main {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .ci-root.mobile-chat .ci-main {
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .ci-sidebar-header {
+    padding: max(20px, env(safe-area-inset-top)) 20px 16px;
+  }
+
+  .ci-sidebar-header h2 {
+    font-size: 22px;
+    letter-spacing: -0.4px;
+  }
+
+  .ci-search {
+    padding: 0 16px 14px;
+  }
+
+  .ci-search input {
+    box-sizing: border-box;
+    min-height: 46px;
+    border-radius: 14px;
+    font-size: 15px;
+  }
+
+  .ci-conversations {
+    padding: 0 10px 12px;
+    overscroll-behavior: contain;
+  }
+
+  .ci-conv {
+    gap: 12px;
+    padding: 13px 12px;
+    min-height: 72px;
+    border-radius: 14px;
+    margin-bottom: 4px;
+  }
+
+  .ci-conv-top h4 {
+    font-size: 14px;
+  }
+
+  .ci-conv-bottom p {
+    font-size: 13px;
+  }
+
+  .ci-header {
+    gap: 10px;
+    padding: 12px;
+    padding-top: max(12px, env(safe-area-inset-top));
+    min-height: 68px;
+  }
+
+  .mobile-back-btn {
+    display: flex;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px !important;
+    color: #166534;
+    background: #F0FDF4 !important;
+    margin-right: 0 !important;
+  }
+
+  .ci-header-info h3 {
+    font-size: 15px;
+  }
+
+  .ci-header-info span {
+    font-size: 11px;
+  }
+
+  .ci-header > div:last-child {
+    gap: 6px !important;
+  }
+
+  .ci-header > div:last-child button {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .ci-messages {
+    min-height: 0;
+    padding: 18px 12px;
+    gap: 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ci-bubble-group {
+    max-width: 88%;
+    gap: 6px;
+  }
+
+  .ci-bubble {
+    padding: 11px 13px;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .ci-bubble-meta {
+    font-size: 10px;
+  }
+
+  .ci-composer {
+    flex-shrink: 0;
+    padding: 10px 12px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    background: #fff;
+  }
+
+  .ci-composer-input {
+    gap: 8px;
+  }
+
+  .ci-composer-input textarea {
+    font-size: 16px;
+    max-height: 120px;
+  }
+
+  .ci-send {
+    flex-shrink: 0;
+    min-width: 42px;
+    min-height: 42px;
+  }
+
+  .ci-empty-main {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ci-sidebar {
+    transition: none !important;
+  }
+}
+
+/* =========================================
+   CHAT MOBILE OVERFLOW FIX
+   ========================================= */
+
+@media (max-width: 768px) {
+  .ci-root {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .ci-sidebar {
+    width: 100%;       /* full width on mobile, not 320px */
+    max-width: 100vw;
+  }
+
+  .ci-main {
+    width: 100%;
+    max-width: 100vw;
+    min-width: 0;
+  }
+
+  .ci-messages {
+    padding: 16px;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .ci-bubble-wrap {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .ci-bubble-group {
+    max-width: 85%;
+  }
+
+  /* Prevent long words from breaking the bubble */
+  .ci-bubble,
+  .ci-bubble p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Truncate long contact names in the sidebar */
+  .ci-conv-top h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+  }
+
+  /* Chat header name should truncate too */
+  .ci-header-info h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 180px;
+  }
+}

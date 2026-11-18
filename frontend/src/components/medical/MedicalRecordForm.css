@@ -1,0 +1,145 @@
+.mrf-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000; padding: 20px;
+  animation: mrfFade 0.15s ease;
+}
+@keyframes mrfFade { from { opacity: 0; } to { opacity: 1; } }
+
+.mrf-modal {
+  width: 100%; max-width: 720px;
+  max-height: 92vh; overflow: hidden;
+  background: white; border-radius: 18px;
+  display: flex; flex-direction: column;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+  animation: mrfScale 0.2s ease;
+}
+@keyframes mrfScale {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.mrf-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 12px; padding: 22px 26px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+.mrf-header h2 {
+  display: flex; align-items: center; gap: 8px;
+  margin: 0; font-size: 1.15rem; font-weight: 700; color: white;
+}
+.mrf-subtitle {
+  margin: 6px 0 0 0;
+  font-size: 0.82rem; color: rgba(255, 255, 255, 0.85);
+}
+.mrf-subtitle strong { color: white; }
+.mrf-close {
+  width: 34px; height: 34px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none; color: white;
+  border-radius: 9px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.mrf-close:hover { background: rgba(255, 255, 255, 0.25); }
+
+.mrf-body {
+  flex: 1; overflow-y: auto;
+  padding: 24px 26px;
+}
+
+.mrf-alert {
+  display: flex; align-items: center; gap: 8px;
+  padding: 11px 14px; border-radius: 10px;
+  font-size: 0.85rem; margin-bottom: 16px;
+}
+.mrf-alert.error {
+  background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c;
+}
+
+.mrf-section {
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f1f5f9;
+}
+.mrf-section:last-of-type { border-bottom: none; }
+.mrf-section h3 {
+  display: flex; align-items: center; gap: 6px;
+  margin: 0 0 14px 0;
+  font-size: 0.78rem; font-weight: 700;
+  color: #64748b; text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.mrf-section h3 svg { color: #10b981; }
+
+.mrf-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.mrf-field { margin-bottom: 14px; }
+.mrf-field label {
+  display: block; margin-bottom: 6px;
+  font-size: 0.82rem; font-weight: 600; color: #334155;
+}
+.mrf-field input,
+.mrf-field textarea {
+  width: 100%; padding: 11px 14px;
+  border: 1.5px solid #e2e8f0; border-radius: 10px;
+  font-size: 0.9rem; font-family: inherit;
+  color: #0f172a; background: #f8fafc;
+  outline: none; resize: vertical;
+  transition: all 0.15s;
+}
+.mrf-field input:focus,
+.mrf-field textarea:focus {
+  border-color: #10b981; background: white;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+.req { color: #dc2626; }
+
+.mrf-actions {
+  display: flex; justify-content: flex-end;
+  gap: 10px; padding-top: 8px;
+}
+.mrf-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 6px; padding: 12px 22px;
+  border-radius: 10px; font-size: 0.9rem;
+  font-weight: 600; cursor: pointer;
+  border: none; font-family: inherit;
+  transition: all 0.15s;
+}
+.mrf-btn.primary {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+.mrf-btn.primary:hover:not(:disabled) { transform: translateY(-1px); }
+.mrf-btn.primary:disabled { opacity: 0.6; cursor: not-allowed; }
+.mrf-btn.secondary {
+  background: #f1f5f9; color: #334155;
+}
+.mrf-btn.secondary:hover { background: #e2e8f0; }
+
+.mrf-success {
+  padding: 48px 24px;
+  text-align: center;
+  color: #10b981;
+}
+.mrf-success h3 {
+  margin: 16px 0 6px 0;
+  font-size: 1.25rem; color: #0f172a; font-weight: 700;
+}
+.mrf-success p { margin: 0; color: #64748b; }
+
+.spin { animation: mrfSpin 1s linear infinite; }
+@keyframes mrfSpin { to { transform: rotate(360deg); } }
+
+@media (max-width: 640px) {
+  .mrf-header, .mrf-body { padding-left: 18px; padding-right: 18px; }
+  .mrf-row { grid-template-columns: 1fr; }
+  .mrf-actions { flex-direction: column-reverse; }
+  .mrf-btn { width: 100%; }
+}

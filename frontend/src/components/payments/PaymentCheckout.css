@@ -1,0 +1,150 @@
+.checkout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f5f5f7;
+  padding: 20px;
+}
+
+.checkout-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #86868b;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-bottom: 20px;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.back-btn:hover {
+  color: #1d1d1f;
+}
+
+.checkout-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.shield-icon {
+  color: #34c759;
+  margin-bottom: 15px;
+}
+
+.checkout-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1d1d1f;
+}
+
+.checkout-header p {
+  color: #86868b;
+  font-size: 15px;
+}
+
+.checkout-error {
+  background: #ffe5e5;
+  color: #d70015;
+  padding: 12px 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.checkout-summary {
+  background: #f5f5f7;
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.checkout-summary h3 {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: #1d1d1f;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  color: #86868b;
+  font-size: 15px;
+}
+
+.summary-row.total {
+  border-top: 1px solid #d2d2d7;
+  padding-top: 12px;
+  margin-top: 12px;
+  font-weight: 700;
+  color: #1d1d1f;
+  font-size: 18px;
+}
+
+.checkout-security {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #86868b;
+  font-size: 13px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.pay-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  background: #007aff;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), background 0.2s;
+}
+
+.pay-btn:hover:not(:disabled) {
+  background: #0066d6;
+}
+
+.pay-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.pay-btn:disabled {
+  background: #d2d2d7;
+  cursor: not-allowed;
+}
+
+.checkout-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 18px;
+  color: #86868b;
+}

@@ -1,0 +1,643 @@
+/* ============================================
+   AUTH CONTAINER
+============================================ */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%);
+}
+
+/* ============================================
+   AUTH CARD
+============================================ */
+.auth-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid #e2e8f0;
+}
+
+.register-card {
+  max-width: 520px;
+}
+
+/* ============================================
+   AUTH HEADER
+============================================ */
+.auth-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-icon {
+  font-size: 3.5em;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.auth-header h2 {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.auth-header p {
+  color: #64748b;
+  font-size: 0.95em;
+}
+
+/* ============================================
+   STEP INDICATOR
+============================================ */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f0fdf4;
+  border-radius: 12px;
+  border: 1px solid #bbf7d0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #dcfce7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #16a34a;
+  transition: all 0.3s ease;
+  border: 2px solid #bbf7d0;
+}
+
+.step.active .step-circle {
+  background: #16a34a;
+  color: white;
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);
+  border-color: #16a34a;
+}
+
+.step.completed .step-circle {
+  background: #15803d;
+  color: white;
+  border-color: #15803d;
+}
+
+.step-label {
+  font-size: 0.75rem;
+  color: #16a34a;
+  margin-top: 5px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.step-line {
+  height: 2px;
+  width: 50px;
+  background: #bbf7d0;
+  margin: 0 10px;
+  margin-bottom: 20px;
+}
+
+.step-line.completed {
+  background: #16a34a;
+}
+
+/* ============================================
+   FORM ELEMENTS
+============================================ */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9em;
+  color: #0f172a;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #16a34a;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+  background: #ffffff;
+}
+
+.form-group input::placeholder {
+  color: #94a3b8;
+}
+
+.form-group input.error {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.form-group input.error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* ============================================
+   INPUT WRAPPER & ICONS
+============================================ */
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #16a34a;
+  pointer-events: none;
+}
+
+.input-wrapper input {
+  padding-left: 42px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #16a34a;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle:hover {
+  color: #15803d;
+}
+
+/* ============================================
+   ROLE SELECTOR
+============================================ */
+.role-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.role-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  gap: 10px;
+  color: #0f172a;
+}
+
+.role-option:hover {
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.role-option.selected {
+  border-color: #16a34a;
+  background: #dcfce7;
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.2);
+}
+
+.role-option span {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.role-option.selected span {
+  color: #15803d;
+}
+
+/* ============================================
+   REQUIRED & ERROR STATES
+============================================ */
+.required {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 0.8em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.error-summary {
+  background: #fee2e2;
+  border: 1px solid #dc2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.error-summary p {
+  color: #991b1b;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.error-summary ul {
+  color: #991b1b;
+  margin-left: 20px;
+  font-size: 0.9em;
+}
+
+.server-error {
+  background: #fee2e2;
+  border: 1px solid #dc2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #991b1b;
+  font-size: 0.95em;
+}
+
+/* ============================================
+   ROLE FIELDS
+============================================ */
+.role-fields {
+  border-top: 2px solid #e2e8f0;
+  padding-top: 20px;
+  margin-top: 10px;
+}
+
+.role-fields h4 {
+  color: #16a34a;
+  font-size: 0.95em;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: #16a34a;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #15803d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.btn-secondary {
+  background: #f8fafc;
+  color: #0f172a;
+  border: 2px solid #e2e8f0;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-secondary:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+/* ============================================
+   FORM ACTIONS
+============================================ */
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.form-actions .btn-primary {
+  flex: 1;
+}
+
+/* ============================================
+   LOADING SPINNER
+============================================ */
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: spin 0.8s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   SUCCESS MESSAGE
+============================================ */
+.success-message {
+  text-align: center;
+  padding: 40px;
+}
+
+.success-message svg {
+  color: #16a34a;
+}
+
+.success-message h3 {
+  color: #15803d;
+  margin: 20px 0 10px;
+  font-size: 1.5rem;
+}
+
+.success-message p {
+  color: #64748b;
+}
+
+/* ============================================
+   AUTH FOOTER
+============================================ */
+.auth-footer {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.auth-footer a {
+  color: #16a34a;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.auth-footer a:hover {
+  color: #15803d;
+  text-decoration: underline;
+}
+
+/* ============================================
+   LOGIN SPECIFIC STYLES
+============================================ */
+.login-card {
+  max-width: 400px;
+}
+
+.login-btn {
+  margin-top: 10px;
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #16a34a;
+}
+
+.forgot-password {
+  background: none;
+  border: none;
+  color: #16a34a;
+  font-size: 0.9em;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #15803d;
+  text-decoration: underline;
+}
+
+.success-message-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  color: #15803d;
+  font-size: 0.95em;
+}
+
+.security-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e2e8f0;
+  color: #94a3b8;
+  font-size: 0.85em;
+}
+
+.login-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  color: #991b1b;
+  font-size: 0.95em;
+}
+
+.login-error .error-icon {
+  flex-shrink: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 500px) {
+  .auth-card {
+    padding: 24px 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .auth-header h2 {
+    font-size: 1.5em;
+  }
+
+  .auth-icon {
+    font-size: 2.8em;
+  }
+  
+  .role-selector {
+    grid-template-columns: 1fr;
+  }
+  
+  .step-indicator {
+    padding: 15px;
+  }
+  
+  .step-line {
+    width: 30px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .form-actions .btn-secondary {
+    width: 100%;
+  }
+
+  .login-options {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .security-note {
+    font-size: 0.8em;
+  }
+}
+
+/* ============================================
+   APPLE SMOOTH EFFECTS (ADDED)
+============================================ */
+:root {
+  --apple-ease: cubic-bezier(0.25, 1, 0.5, 1);
+  --apple-primary: #007aff;
+}
+
+@keyframes appleFadeIn {
+  0% { opacity: 0; transform: translateY(20px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Apply glassmorphism and smooth transition to auth cards */
+.apple-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  animation: appleFadeIn 0.6s var(--apple-ease) forwards;
+  transition: box-shadow 0.3s var(--apple-ease), transform 0.3s var(--apple-ease);
+}
+
+/* Make the primary buttons feel like Apple buttons */
+.btn-primary {
+  transition: transform 0.2s var(--apple-ease), background-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: scale(0.96) !important; /* Apple click effect */
+}
+
+/* Smooth Focus for inputs */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #16a34a;
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.15);
+  outline: none;
+  background: #ffffff;
+  transition: all 0.3s var(--apple-ease);
+}

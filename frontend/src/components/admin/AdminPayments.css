@@ -1,0 +1,72 @@
+.admin-payments-container {
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-header {
+  margin-bottom: 32px;
+}
+
+.admin-header h1 {
+  font-size: 28px;
+  color: #1d1d1f;
+  margin-bottom: 8px;
+}
+
+.admin-header p {
+  color: #86868b;
+}
+
+.admin-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.admin-card {
+  padding: 24px;
+  border-radius: 20px;
+  display: flex;
+  gap: 20px;
+  color: white;
+}
+
+.admin-card.revenue {
+  background: linear-gradient(135deg, #34c759 0%, #248a3d 100%);
+  box-shadow: 0 10px 20px rgba(52, 199, 89, 0.2);
+}
+
+.admin-card.escrow {
+  background: linear-gradient(135deg, #ff9500 0%, #cc7700 100%);
+  box-shadow: 0 10px 20px rgba(255, 149, 0, 0.2);
+}
+
+.card-icon {
+  background: rgba(255, 255, 255, 0.2);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-content p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.card-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+  .admin-cards {
+    grid-template-columns: 1fr;
+  }
+}
